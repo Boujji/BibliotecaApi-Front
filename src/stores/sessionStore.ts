@@ -41,9 +41,10 @@ export const useSessionStore = create<SessionStore>()(
         }),
 
       login: (response: LoginResponse) => {
-        const { accesToken, refreshToken, ...userInfo } = response;
+        console.log('Login response:', response)
+        const { accessToken, refreshToken, ...userInfo } = response;
         set({
-          accessToken: accesToken,
+          accessToken: accessToken,
           refreshToken,
           user: userInfo as AuthUser,
           isAuthenticated: true,
